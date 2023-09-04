@@ -98,18 +98,21 @@ function App() {
 
     guestReviews: [
       {
+        id: 43454,
         guestName: "Alice Johnson",
         rating: 5,
         review:
           "Amazing experience! The staff was very friendly and the facilities were top-notch.",
       },
       {
+        id: 75543,
         guestName: "Bob Smith",
         rating: 4,
         review:
           "Great location and beautiful views. However, the prices at the restaurant were a bit high.",
       },
       {
+        id: 55431,
         guestName: "Eve Williams",
         rating: 5,
         review:
