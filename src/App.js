@@ -1,3 +1,19 @@
+import Page from "./component/page";
+import Header from "./component/header";
+import Title from "./component/title";
+import Photo from './component/photo';
+import Price from './component/price';
+import RoomList from './component/room-list';
+import Description from './component/description';
+import Details from './component/details';
+import Amenities from './component/amenities';
+import Contact from './component/contact';
+import Properties from './component/properties';
+import Guests from './component/guestsRev';
+import Attractions from './component/attractions';
+
+
+
 function App() {
   const data = {
     listing_name: "Іст-Сайд Біл",
@@ -79,7 +95,7 @@ function App() {
       image: "https://picsum.photos/80/80",
       response_rate: 100,
       response_time: "within an hour",
-      info: "I'm an Austin-Brooklyn filmmaker and television producer who can be found biking to the Farmer's Market...",
+      info: "Я кінорежисерка і телевізійний продюсер Остіна-Брукліна, якого можна знайти на велосипеді до Фермерського ринку...",
       phone: "+123-456-7890",
     },
 
@@ -144,7 +160,45 @@ function App() {
     ],
   };
 
-  return <div>Hello World</div>;
+  return (
+    <Page>
+      <Header />
+      <Title
+        title={data.listing_name}
+        rating={data.reviews_summary.average_rating}
+        review={data.reviews_summary.total_reviews}
+        city={data.location.city}
+        country={data.location.country}
+        superhost={data.superhost}
+      />
+      <Photo src={data.image} name={data.listing_name} />
+      <Price
+        price={data.price.original_price}
+        discount={data.price.discounted_price}
+        currency={data.price.currency}
+        cleaning={data.price.cleaning_fee}
+        service={data.price.service_fee}
+        checkin={data.availability.checkin_date}
+        checkout={data.availability.checkout_date}
+      />
+      <RoomList list={data.roomTypes} />
+      <Description title='Опис' children={data.description} />
+      <Details title='Деталі властивості:' property_details={data.property_details} />
+      <Description title='Про сусідів' children={data.neighborhood_info} />
+      <Amenities title='Зручності' amenities={data.amenities} />
+      <Contact name={data.contact_info.name}
+        title={`Власник - ${data.contact_info.name}`}
+        image={data.contact_info.image}
+        response_rate={`${data.contact_info.response_rate}%`}
+        response_time={data.contact_info.response_time}
+        phone={data.contact_info.phone}
+        info={data.contact_info.info}
+      ></Contact>
+      <Properties title="Додаткові властивості" properties={data.additional_properties} />
+      <Guests list={data.guestReviews} />
+      <Attractions title="Пам'ятки поблизу" attractions={data.nearbyAttractions} />
+    </Page>
+  );
 }
 
 export default App;

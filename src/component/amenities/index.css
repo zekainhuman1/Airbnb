@@ -1,0 +1,12 @@
+.amen__block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .amen__list {
+    display: flex;
+    font-size: 16px;
+    flex-direction: column;
+    gap: 20px;
+  }
